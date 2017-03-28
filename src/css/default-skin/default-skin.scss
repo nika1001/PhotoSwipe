@@ -74,6 +74,14 @@
 	height: 44px;
 }
 
+.pswp__button--download,
+.pswp__button--download:before {
+  background: url(#{$pswp__assets-path}download.png) 12px 12px no-repeat;
+  background-size: 20px 20px;
+  width: 44px;
+  height: 44px;
+}
+
 @media (-webkit-min-device-pixel-ratio: 1.1),  (min-resolution: 105dpi), (min-resolution: 1.1dppx) {
 
 	/* Serve SVG sprite if browser supports SVG and resolution is more than 105dpi */
@@ -81,7 +89,12 @@
     .pswp--svg .pswp__button--arrow--left:before,
 	.pswp--svg .pswp__button--arrow--right:before {
         background-image: url(#{$pswp__assets-path}default-skin.svg);
-    }
+	}
+	
+	.pswp--svg .pswp__button--download,
+	.pswp--svg .pswp__button--download:before {
+		background-image: url(#{$pswp__assets-path}download.svg);
+	}
 
     .pswp--svg .pswp__button--arrow--left,
 	.pswp--svg .pswp__button--arrow--right {

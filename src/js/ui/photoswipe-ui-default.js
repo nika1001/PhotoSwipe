@@ -30,6 +30,7 @@ var PhotoSwipeUI_Default =
 		_fakeCaptionContainer,
 		_indexIndicator,
 		_shareButton,
+		_downloadButton,
 		_shareModal,
 		_shareModalHidden = true,
 		_initalCloseOnScrollValue,
@@ -64,6 +65,7 @@ var PhotoSwipeUI_Default =
 			fullscreenEl: true,
 			zoomEl: true,
 			shareEl: true,
+			downloadEl: true,
 			counterEl: true,
 			arrowEl: true,
 			preloaderEl: true,
@@ -88,6 +90,9 @@ var PhotoSwipeUI_Default =
 			},
 			getTextForShare: function( /* shareButtonData */ ) {
 				return pswp.currItem.title || '';
+			},
+			getDownloadURLForShare: function( /* shareButtonData */ ) {
+				return pswp.currItem.download || '';
 			},
 				
 			indexIndicatorSep: ' / ',
@@ -441,6 +446,13 @@ var PhotoSwipeUI_Default =
 			onTap: function() {
 				_toggleShareModal();
 			} 
+		},
+		{ 
+			name: 'button--download', 
+			option: 'downloadEl',
+			onTap: function () {
+				window.location = _options.getDownloadURLForShare();
+			}
 		},
 		{ 
 			name: 'button--zoom', 

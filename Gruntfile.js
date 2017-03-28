@@ -123,6 +123,8 @@ module.exports = function(grunt) {
           {src: ['src/css/default-skin/default-skin.svg'], dest: 'dist/default-skin/default-skin.svg'},
           {src: ['src/css/default-skin/default-skin.png'], dest: 'dist/default-skin/default-skin.png'},
           {src: ['src/css/default-skin/preloader.gif'], dest: 'dist/default-skin/preloader.gif'},
+          {src: ['src/css/default-skin/download.svg'], dest: 'dist/default-skin/download.svg'},
+          {src: ['src/css/default-skin/download.png'], dest: 'dist/default-skin/download.png'},
           {expand: true, src: ['dist/**'], dest: '_site/'}
         ]
       },
@@ -167,7 +169,8 @@ module.exports = function(grunt) {
     svgmin: {
       dist: {
         files: {
-          'src/css/default-skin/default-skin.svg': 'src/css/default-skin/default-skin.svg'
+          'src/css/default-skin/default-skin.svg': 'src/css/default-skin/default-skin.svg',
+          'src/css/default-skin/download.svg': 'src/css/default-skin/download.svg'
         }
       }
     },

@@ -1,6 +1,6 @@
-/*! PhotoSwipe Default UI - 4.1.1 - 2015-12-24
+/*! PhotoSwipe Default UI - 4.1.1 - 2017-03-28
 * http://photoswipe.com
-* Copyright (c) 2015 Dmitry Semenov; */
+* Copyright (c) 2017 Dmitry Semenov; */
 /**
 *
 * UI on top of main sliding area (caption, arrows, close button, etc.).
@@ -33,6 +33,7 @@ var PhotoSwipeUI_Default =
 		_fakeCaptionContainer,
 		_indexIndicator,
 		_shareButton,
+		_downloadButton,
 		_shareModal,
 		_shareModalHidden = true,
 		_initalCloseOnScrollValue,
@@ -67,6 +68,7 @@ var PhotoSwipeUI_Default =
 			fullscreenEl: true,
 			zoomEl: true,
 			shareEl: true,
+			downloadEl: true,
 			counterEl: true,
 			arrowEl: true,
 			preloaderEl: true,
@@ -91,6 +93,9 @@ var PhotoSwipeUI_Default =
 			},
 			getTextForShare: function( /* shareButtonData */ ) {
 				return pswp.currItem.title || '';
+			},
+			getDownloadURLForShare: function( /* shareButtonData */ ) {
+				return pswp.currItem.download || '';
 			},
 				
 			indexIndicatorSep: ' / ',
@@ -444,6 +449,13 @@ var PhotoSwipeUI_Default =
 			onTap: function() {
 				_toggleShareModal();
 			} 
+		},
+		{ 
+			name: 'button--download', 
+			option: 'downloadEl',
+			onTap: function () {
+				window.location = _options.getDownloadURLForShare();
+			}
 		},
 		{ 
 			name: 'button--zoom', 
